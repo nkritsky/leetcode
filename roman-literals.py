@@ -4,6 +4,8 @@
 result=0
 class Solution:
     def romanToInt(self, s: str) -> int:
+        global result
+        result=0
         return(first_digit(0,s))
 
 def first_digit(sp:int, s: str):
@@ -47,6 +49,9 @@ def handle_C(sp:int, s: str):
     elif (s[sp] == 'M'):
         result = result+900
         return (first_digit(sp+1,s))
+    else:
+        result = result+100
+        return (first_digit(sp,s))
     print (s[sp])
 
 def handle_X(sp:int, s: str):
@@ -65,6 +70,9 @@ def handle_X(sp:int, s: str):
     elif (s[sp] == 'C'):
         result = result+90
         return (first_digit(sp+1,s))
+    else:
+        result = result+10
+        return (first_digit(sp,s))
     print (s[sp])
 
 def handle_I(sp:int, s: str):
@@ -83,4 +91,7 @@ def handle_I(sp:int, s: str):
     elif (s[sp] == 'X'):
         result = result+9
         return (first_digit(sp+1,s))
+    else:
+        result = result+1
+        return (first_digit(sp,s))
     print (s[sp])
